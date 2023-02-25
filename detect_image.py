@@ -68,28 +68,7 @@ def detect(opt, model,return_img=False):
                     coords_indv = [int(j) for j in xyxy]
                     all_coords.append(coords_indv)
                     
-                    
-                    # x1,y1,x2,y2 = coords_indv
-                    # helmet_temp = helmets_framed[(x1 <= helmets_framed.middle_x) & (helmets_framed.middle_x <= x2) &
-                    #                              (y1 <= helmets_framed.middle_y) & (helmets_framed.middle_y <= y2) ].copy()
-                    
-                    # top_middle =[(x1+x2)/2, (y1+y2)/4 ]
-                    
-                    # if len(helmet_temp) :
-                        
-                    #     helmet_temp = helmet_temp.assign(helmet_euclid = (((helmet_temp.middle_x-top_middle[0])**2+ 
-                    #                                                         (helmet_temp.middle_y-top_middle[1])**2
-                    #                                                         )**0.5).values)
-                        
-                    #     indx_indv = helmet_temp[["helmet_euclid"]].idxmin()
-                    #     helmets.loc[indx_indv.values[0],["yolo_x1","yolo_y1","yolo_x2","yolo_y2"]] = np.array(coords_indv)
-                        
-                        # if opt["bbox"]:
-                        #     label_player = helmet_temp.loc[indx_indv,"player_label"].values[0]
-                        #     plot_one_box(xyxy, im0, label=label_player, color=(0,0,0), line_thickness=1)
-                        
-
-        
+                            
         for helmet in helmets_framed.itertuples():
             d = [dist(helmet, bbox) if isin(helmet, bbox) else float("inf") for bbox in all_coords]
             if not np.all(np.array(d) == float("inf")):

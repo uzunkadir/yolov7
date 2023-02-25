@@ -118,12 +118,7 @@ for i in tqdm(helmets_time_rel.groupby(["game_play","view"])):
     helmets_time_rel.loc[helmets_yolo.index, ["yolo_x1","yolo_y1","yolo_x2","yolo_y2"]] = helmets_yolo[["yolo_x1","yolo_y1","yolo_x2","yolo_y2"]].values
 
 
-# helmets_time_rel = helmets_time_rel.fillna(0)
-# helmets_time_rel.to_csv(r"E:\GITHUB-REPOS\NFL-Contact-Detection\csvs\helmets_timerel_yolo.csv")
-
-# helmets_time_rel[(helmets_time_rel.yolo_x1==0)&
-#                  (helmets_time_rel.yolo_y1==0)&
-#                  (helmets_time_rel.yolo_x2==0)&
-#                  (helmets_time_rel.yolo_y2==0)]
+helmets_time_rel = helmets_time_rel.fillna(0)
+helmets_time_rel.to_csv(r"E:\GITHUB-REPOS\NFL-Contact-Detection\csvs\helmets_timerel_yolo.csv")
 
 
